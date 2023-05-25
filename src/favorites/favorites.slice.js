@@ -10,10 +10,13 @@ export const favoriteSlice = createSlice({
 
             const isExist = state.some(r => r.id === recipe.id)
 
-            if (isExist)
-                state = state.filter(r => r.id !== recipe.id)
-            else
-                state.push(recipe)
+            if (isExist) {
+                const index = state.findIndex(item => item.id === recipe.id)
+                if (index !== -1) {
+                    state.splice(index, 1)
+                }
+            }              
+            else state.push(recipe)
         }
     }
 })
