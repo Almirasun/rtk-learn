@@ -1,11 +1,11 @@
 import RecipeItem from "./recipe-item/RecipeItem"
 import '../index.css'
 import Header from "./header/Header"
-import {useGetRecipesQuery} from '../store/store'
+import { useGetRecipesQuery } from "../store/api/api"
 
-function App() {
+const App = () => {
 
-  const {isLoading, data} = useGetRecipesQuery()
+  const { isLoading, data } = useGetRecipesQuery()
   console.log(data);
 
   return (
