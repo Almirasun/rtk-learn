@@ -15,6 +15,7 @@ const RecipeItem = ({ recipe }) => {
     return (
         <section>
             <div className={styles.card}>
+                <img src={recipe.image} alt="image" />
                 <h3 className={style.name}>{recipe.name}</h3>
                 <button className={styles.btn} onClick={() =>
                     toggleFavorites(recipe)}>

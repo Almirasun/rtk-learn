@@ -12,18 +12,14 @@ const App = () => {
     <section>
       <Header />
       <div>
-        <RecipeItem recipe={{
-          id: 1,
-          name: 'Лагман'
-        }} />
-        <RecipeItem recipe={{
-          id: 2,
-          name: 'Плов'
-        }} />
-        <RecipeItem recipe={{
-          id: 3,
-          name: 'Манты'
-        }} />
+        {isLoading ? (<div>loading...</div>
+        ) : data ? (
+          data.map(recipe =>
+            <RecipeItem key={recipe.id} recipe={recipe} />)
+        ) : (
+          <div>Not found</div>
+        )}
+        
       </div>
     </section>
   )
