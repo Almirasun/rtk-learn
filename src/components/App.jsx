@@ -1,23 +1,31 @@
 import RecipeItem from "./recipe-item/RecipeItem"
 import '../index.css'
+import Header from "./header/Header"
+import {useGetRecipesQuery} from '../store/store'
 
 function App() {
 
+  const {isLoading, data} = useGetRecipesQuery()
+  console.log(data);
+
   return (
-    <div>
-      <RecipeItem recipe={{
-        id: 1,
-        name: 'Лагман'
-      }}/>
-      <RecipeItem recipe={{
-        id: 2,
-        name: 'Плов'
-      }}/>
-      <RecipeItem recipe={{
-        id: 3,
-        name: 'Манты'
-      }}/>
-    </div>
+    <section>
+      <Header />
+      <div>
+        <RecipeItem recipe={{
+          id: 1,
+          name: 'Лагман'
+        }} />
+        <RecipeItem recipe={{
+          id: 2,
+          name: 'Плов'
+        }} />
+        <RecipeItem recipe={{
+          id: 3,
+          name: 'Манты'
+        }} />
+      </div>
+    </section>
   )
 }
 

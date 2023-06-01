@@ -1,20 +1,19 @@
 import style from './RecipeItem.module.css'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { useFavorites } from '../../hooks/useFavorites'
 import styles from './RecipeItem.module.css'
 import { useActions } from '../../hooks/useActions'
-import Header from '../header/Header'
 
 const RecipeItem = ({ recipe }) => {
 
-    const { favorites } = useSelector(state => state)
-
     const { toggleFavorites } = useActions()
+
+    const { favorites } = useFavorites()
 
     const isExist = favorites.some(r => r.id === recipe.id)
 
     return (
         <section>
-            <Header />
             <div className={styles.card}>
                 <h3 className={style.name}>{recipe.name}</h3>
                 <button className={styles.btn} onClick={() =>
