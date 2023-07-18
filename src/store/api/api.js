@@ -1,18 +1,23 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const API_URL = 'http://localhost:4200/recipes'
+const API_URL = "http://localhost:4200/recipes";
 
 export const api = createApi({
-    reducerPath: 'api',
-    tagTypes: ['Recipe'],
-    baseQuery: fetchBaseQuery({
-        baseUrl: API_URL
+  reducerPath: "api",
+  tagTypes: ["Recipe"],
+  baseQuery: fetchBaseQuery({
+    baseUrl: API_URL,
+  }),
+  endpoints: (builder) => ({
+    getRecipes: builder.query({
+      query: () => "/",
+      providesTags: () => [
+        {
+          type: "Recipe",
+        },
+      ],
     }),
-    endpoints: builder => ({
-        getRecipes: builder.query({
-            query: () => '/',
-        }),
-    }),
-})
+  }),
+});
 
-export const { useGetRecipesQuery } = api
+export const { useGetRecipesQuery } = api;

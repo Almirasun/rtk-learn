@@ -1,7 +1,8 @@
-import RecipeItem from "./recipe-item/RecipeItem"
 import '../index.css'
-import Header from "./header/Header"
-import { useGetRecipesQuery } from "../store/api/api"
+import Header from './header/Header';
+import RecipeItem from './recipe-item/RecipeItem'
+import { useGetRecipesQuery } from '../store/api/api'
+import CreateRecipe from './create-recipe/CreateRecipe';
 
 const App = () => {
 
@@ -11,18 +12,22 @@ const App = () => {
   return (
     <section>
       <Header />
+      <CreateRecipe />
       <div>
-        {isLoading ? (<div>loading...</div>
+        {isLoading ? (
+          <div>Loading...</div>
         ) : data ? (
           data.map(recipe =>
             <RecipeItem key={recipe.id} recipe={recipe} />)
         ) : (
           <div>Not found</div>
         )}
-        
+
+          {/* RecipeItem`ы можем убрать */}
       </div>
     </section>
-  )
+  );
 }
 
-export default App
+export default App;
+
