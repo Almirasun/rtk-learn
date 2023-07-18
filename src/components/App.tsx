@@ -6,7 +6,7 @@ import CreateRecipe from './create-recipe/CreateRecipe';
 
 const App = () => {
 
-  const { isLoading, data } = useGetRecipesQuery()
+  const { isLoading, data } = useGetRecipesQuery(null)
   console.log(data);
 
   return (
