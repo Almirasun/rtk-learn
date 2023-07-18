@@ -13,7 +13,7 @@ const App = () => {
     <section>
       <Header />
       <CreateRecipe />
-      <div>
+      <div style={{display: "flex", flexWrap: "wrap"}}>
         {isLoading ? (
           <div>Loading...</div>
         ) : data ? (

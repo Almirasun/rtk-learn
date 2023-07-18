@@ -1,10 +1,9 @@
-
 .item {
     background: rgba(57, 56, 56, 0.4);
     margin: 15px;
     padding: 20px;
     border-radius: 6px;
-    width: 30%;
+    width: 300px;
 }
 .item img {
     width: 100px;
